@@ -5,14 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Item extends Model
+class Book extends Model
 {
     use HasFactory;
 
+    protected $table = "book";
+
+    protected $primaryKey = "id";
+
+    public $timnestamps = false;
+
     protected $fillable = [
-        'item_name',
-        'item_type',
-        'item_price',
-        'item_desc',
+        'nama_buku',
+        'deskripsi',
+        'harga'
     ];
 }

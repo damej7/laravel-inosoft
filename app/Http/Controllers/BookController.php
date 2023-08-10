@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -16,7 +17,17 @@ class BookController extends Controller
         //
         // echo "Hello World";
         $name = "Georgesky";
-        return view('book', ['name' => $name]);
+        // return view('book', ['name' => $name]);
+
+        $bookModel = new Book();
+
+        $books = $bookModel->get();
+
+        foreach ($books as $book) {
+            echo "Nama buku : " . $book->nama_buku . '<br>';
+            echo "Deskripsi buku : " . $book->deskripsi . '<br>';
+            echo "Harga buku : " . $book->harga . '<br>';
+        }
     }
 
     /**

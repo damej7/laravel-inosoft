@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,11 @@ Route::get("/book/create", "App\Http\Controllers\BookController@create");
 Route::get("/book/edit", "App\Htpp\Controllers\BookController@edit");
 Route::get("/book/update", "App\Htpp\Controllers\BookController@update");
 Route::get("/book/delete", "App\Htpp\Controllers\BookController@destroy");
+
+
+// Route::get('/item/create', 'App\Http\Controllers\ItemController@insertPage');
+// Route::post('/item/post', 'App\Http\Controllers\ItemController@insert');
+
+Route::get('/item/create', [ItemController::class, 'insertPage']);
+Route::post('/item/post', [ItemController::class, 'insert']);
+Route::get('/item', [ItemController::class, 'index']);
